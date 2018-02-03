@@ -55,24 +55,21 @@ necessary to get a good convergence.
 
 from __future__ import print_function
 
-from sklearn.datasets import fetch_20newsgroups
-from sklearn.decomposition import TruncatedSVD
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.feature_extraction.text import HashingVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import Normalizer
-from sklearn import metrics
-
-from sklearn.cluster import KMeans, MiniBatchKMeans
-
 import logging
-from optparse import OptionParser
 import sys
+from optparse import OptionParser
 from time import time
 
 import numpy as np
-
+from sklearn import metrics
+from sklearn.cluster import KMeans, MiniBatchKMeans
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.decomposition import TruncatedSVD
+from sklearn.feature_extraction.text import HashingVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import Normalizer
 
 # Display progress logs on stdout
 logging.basicConfig(level=logging.INFO,

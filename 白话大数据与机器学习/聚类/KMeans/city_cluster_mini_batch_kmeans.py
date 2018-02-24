@@ -4,10 +4,10 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from sklearn.cluster import KMeans
+from sklearn.cluster import MiniBatchKMeans
 
-data = pd.read_csv('sh_area_level2.csv')
-# data = pd.read_csv('sh_area_level3.csv')
+#data = pd.read_csv('sh_area_level2.csv')
+data = pd.read_csv('sh_area_level3.csv')
 
 # 读取前五行数据，如果是最后五行，用data.tail()
 print(data.head(5))
@@ -28,7 +28,7 @@ X=np.array(X)
 
 n_clusters = 5
 
-k_means = KMeans(n_clusters)
+k_means = MiniBatchKMeans(n_clusters)
 t0 = time.time()
 cls = k_means.fit(X)
 t_batch = time.time() - t0
@@ -45,7 +45,7 @@ for i in range(n_clusters):
 
 print(t_batch)
 print(k_means.inertia_)
-plt.title('')
+plt.title('Mini-Batch-K-Means')
 plt.show()
 
 
